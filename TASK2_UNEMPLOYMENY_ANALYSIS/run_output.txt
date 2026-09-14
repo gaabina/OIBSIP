@@ -1,0 +1,42 @@
+/home/ubuntu/OIBSIP/DataScience-Task3-CarPricePrediction/car_price_prediction.py:21: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.figure(figsize=(9,5)); sns.histplot(df["Selling_Price"],kde=True); plt.title("Distribution of Selling Prices"); plt.tight_layout(); plt.savefig(OUT/"selling_price_distribution.png",dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task3-CarPricePrediction/car_price_prediction.py:22: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.figure(figsize=(9,5)); sns.boxplot(data=df,x="Fuel_Type",y="Selling_Price",hue="Fuel_Type",legend=False); plt.title("Selling Price by Fuel Type"); plt.tight_layout(); plt.savefig(OUT/"price_by_fuel.png",dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task3-CarPricePrediction/car_price_prediction.py:23: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.figure(figsize=(9,5)); sns.scatterplot(data=df,x="Car_Age",y="Selling_Price",hue="Fuel_Type"); plt.title("Selling Price vs Car Age"); plt.tight_layout(); plt.savefig(OUT/"price_vs_age.png",dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task3-CarPricePrediction/car_price_prediction.py:26: Pandas4Warning: For backward compatibility, 'str' dtypes are included by select_dtypes when 'object' dtype is specified. This behavior is deprecated and will be removed in a future version. Explicitly pass 'str' to `include` to select them, or to `exclude` to remove them and silence this warning.
+See https://pandas.pydata.org/docs/user_guide/migration-3-strings.html#string-migration-select-dtypes for details on how to write code that works with pandas 2 and 3.
+  cat=X.select_dtypes(include="object").columns.tolist(); num=X.select_dtypes(exclude="object").columns.tolist()
+/home/ubuntu/OIBSIP/DataScience-Task3-CarPricePrediction/car_price_prediction.py:38: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  fi=pd.DataFrame({"Feature":names,"Importance":np.ravel(imp)}).sort_values("Importance",ascending=False).head(15); fi.to_csv(OUT/"feature_importance.csv",index=False); plt.figure(figsize=(10,6)); sns.barplot(data=fi,x="Importance",y="Feature",hue="Feature",legend=False); plt.title(f"Top Feature Importances — {best}"); plt.tight_layout(); plt.savefig(OUT/"feature_importance.png",dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task3-CarPricePrediction/car_price_prediction.py:40: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.figure(figsize=(9,7)); sns.heatmap(df.select_dtypes(exclude="object").corr(),annot=True,fmt=".2f",cmap="coolwarm"); plt.title("Feature Correlation Heatmap"); plt.tight_layout(); plt.savefig(OUT/"correlation_heatmap.png",dpi=180); plt.show()
+Original shape: (301, 9)
+  Car_Name  Year  Selling_Price  ...  Seller_Type  Transmission Owner
+0     ritz  2014           3.35  ...       Dealer        Manual     0
+1      sx4  2013           4.75  ...       Dealer        Manual     0
+2     ciaz  2017           7.25  ...       Dealer        Manual     0
+3  wagon r  2011           2.85  ...       Dealer        Manual     0
+4    swift  2014           4.60  ...       Dealer        Manual     0
+
+[5 rows x 9 columns]
+Cleaned shape: (299, 11)
+Missing values:
+ Car_Name         0
+Year             0
+Selling_Price    0
+Present_Price    0
+Kms_Driven       0
+Fuel_Type        0
+Seller_Type      0
+Transmission     0
+Owner            0
+Car_Age          0
+Brand            0
+dtype: int64
+Brands: 44
+Model evaluation:
+                      Model    MAE   RMSE     R2
+0        Linear Regression  1.348  2.389  0.779
+1  Random Forest Regressor  1.424  3.503  0.524
+Best model: Linear Regression
