@@ -1,0 +1,46 @@
+/home/ubuntu/OIBSIP/DataScience-Task2-UnemploymentAnalysis/unemployment_analysis.py:52: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.tight_layout(); plt.savefig(OUTPUT_DIR/"top_10_regions.png", dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task2-UnemploymentAnalysis/unemployment_analysis.py:59: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.legend(); plt.tight_layout(); plt.savefig(OUTPUT_DIR/"monthly_trend.png", dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task2-UnemploymentAnalysis/unemployment_analysis.py:68: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.savefig(OUTPUT_DIR/"regional_time_series.png", dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task2-UnemploymentAnalysis/unemployment_analysis.py:74: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.savefig(OUTPUT_DIR/"correlation_heatmap.png", dpi=180); plt.show()
+/home/ubuntu/OIBSIP/DataScience-Task2-UnemploymentAnalysis/unemployment_analysis.py:84: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.xticks(rotation=15); plt.tight_layout(); plt.savefig(OUTPUT_DIR/"pre_post_covid.png", dpi=180); plt.show()
+Dataset shape before cleaning: (768, 7)
+           Region         Date  ...  Estimated Labour Participation Rate (%)   Area
+0  Andhra Pradesh   31-05-2019  ...                                    43.24  Rural
+1  Andhra Pradesh   30-06-2019  ...                                    42.05  Rural
+2  Andhra Pradesh   31-07-2019  ...                                    43.50  Rural
+3  Andhra Pradesh   31-08-2019  ...                                    43.97  Rural
+4  Andhra Pradesh   30-09-2019  ...                                    44.68  Rural
+
+[5 rows x 7 columns]
+Removed 28 duplicate/incomplete rows
+Cleaned shape: (740, 7)
+Missing values:
+ Region                       0
+Date                         0
+Frequency                    0
+Unemployment_Rate            0
+Employed                     0
+Labour_Participation_Rate    0
+Area                         0
+dtype: int64
+Date range: 2019-05-31 to 2020-06-30
+              Region  Unemployment_Rate
+24           Tripura              28.35
+8            Haryana              26.28
+11         Jharkhand              20.58
+2              Bihar              18.92
+9   Himachal Pradesh              18.54
+5              Delhi              16.50
+10   Jammu & Kashmir              16.19
+3         Chandigarh              15.99
+20         Rajasthan              14.06
+25     Uttar Pradesh              12.55
+            Unemployment_Rate  Employment_Rate  Labour_Participation_Rate
+Period                                                                   
+Post-COVID              17.77            32.41                      39.33
+Pre-COVID                9.51            39.58                      43.89

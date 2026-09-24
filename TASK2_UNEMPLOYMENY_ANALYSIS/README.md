@@ -1,16 +1,31 @@
-# OIBSIP Data Science — Task 3: Car Price Prediction
+# OIBSIP Data Science — Task 2: Unemployment Analysis with Python
 
-This project predicts used-car selling prices using the public **Vehicle dataset from Cardekho**. It follows the OIBSIP Task 3 checklist.
+This project completes the Oasis Infobyte Data Science Task 2 requirements using the publicly available **Unemployment in India** dataset. It examines regional and temporal unemployment patterns and compares labour-market indicators before and after March 2020.
 
-## Dataset
-`car data.csv` contains car name, year, selling price, present price, kilometres driven, fuel type, seller type, transmission, and owner. Source: [Cardekho vehicle dataset on GitHub](https://github.com/ShuklaPrashant21/Used-Car-Price-Prediction/blob/master/car%20data.csv).
+## Files
 
-## Included
-Data cleaning, duplicate/null handling, categorical normalization, car-age and brand feature engineering, price distribution, fuel-type box plot, price-vs-age scatter plot, one-hot encoding, correlation heatmap, train/test split, Linear Regression, Random Forest Regression, MAE/RMSE/R2 evaluation, and best-model feature importance.
+- `Unemployment_in_India.csv` — source dataset.
+- `Unemployment_Analysis_Task2.ipynb` — clean, commented submission notebook.
+- `unemployment_analysis.py` — equivalent standalone Python script.
+- `outputs/` — generated charts and summary tables.
 
-## Run
+## Run locally
+
 ```bash
 pip install -r requirements.txt
-python car_price_prediction.py
+jupyter notebook Unemployment_Analysis_Task2.ipynb
 ```
-Open `Car_Price_Prediction_Task3.ipynb` in VS Code/Jupyter and run all cells.
+
+Or run the script:
+
+```bash
+python unemployment_analysis.py
+```
+
+## Requirements covered
+
+The notebook includes loading, shape inspection, null checks, type conversion, cleaning, region-wise averages, month-wise trends, a five-region time series, top-10 bar chart, a three-indicator correlation heatmap, a Pre-COVID/Post-COVID mean comparison, written observations, limitations, and reproducibility notes.
+
+## Data source and limitation
+
+Source: [Kaggle — Unemployment in India](https://www.kaggle.com/datasets/gokulrajkmv/unemployment-in-india), whose description attributes the underlying source to CMIE. The dataset covers May 2019–June 2020 and is therefore a short descriptive snapshot, not a long-term estimate of unemployment. The source does not include a standalone employment-rate column; `Employment_Rate` is derived as `Labour_Participation_Rate × (1 − Unemployment_Rate/100)` for the required three-indicator comparison.
